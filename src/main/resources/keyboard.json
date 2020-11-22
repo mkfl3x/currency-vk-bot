@@ -1,0 +1,34 @@
+{
+  "one_time": true,
+  "buttons": [
+    [
+      {
+        "action": {
+          "type": "text",
+          "payload": "{\"button_id\": 1}",
+          "label": "Dollar [$]"
+        },
+        "color": "secondary"
+      },
+      {
+        "action": {
+          "type": "text",
+          "payload": "{\"button_id\": 2}",
+          "label": "Euro [€]"
+        },
+        "color": "secondary"
+      }
+    ],
+    [
+      {
+        "action": {
+          "type": "open_link",
+          "payload": "{\"button_id\": 3}",
+          "label": "Go to this project GitHub",
+          "link": "https://github.com/mkfl3x/vk-bot"
+        },
+        "color": "primary"
+      }
+    ]
+  ]
+}
