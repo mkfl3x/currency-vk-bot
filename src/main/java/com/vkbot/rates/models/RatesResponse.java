@@ -1,9 +1,11 @@
 package com.vkbot.rates.models;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
 
 import java.util.Map;
 
+@Getter
 public class RatesResponse {
 
     @SerializedName("Date")
@@ -20,4 +22,8 @@ public class RatesResponse {
 
     @SerializedName("Valute")
     public Map<String, Currency> currencies;
+
+    public Currency getCurrency(String currency){
+        return this.currencies.get(currency);
+    }
 }

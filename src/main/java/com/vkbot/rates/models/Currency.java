@@ -1,7 +1,9 @@
 package com.vkbot.rates.models;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
 
+@Getter
 public class Currency {
 
     @SerializedName("ID")

@@ -12,7 +12,11 @@ repositories {
 dependencies {
     dependencies {
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.0.RELEASE'
+        compile group: 'com.squareup.okhttp', name: 'okhttp', version: '2.7.5'
         compile group: 'com.vk.api', name: 'sdk', version: '1.0.6'
+
+        compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
+        annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
     }
 
     configurations {
