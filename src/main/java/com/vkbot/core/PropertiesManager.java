@@ -10,19 +10,19 @@ import java.util.Properties;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PropertiesManager {
 
-    private static final Properties PROPS;
+    private static final Properties PROPERTIES;
 
     static {
-        PROPS = new Properties();
+        PROPERTIES = new Properties();
         try {
-            PROPS.load(new FileInputStream("src/main/resources/config.properties"));
+            PROPERTIES.load(new FileInputStream("src/main/resources/config.properties"));
         } catch (IOException e) {
             throw new RuntimeException("Reading properties was failed", e);
         }
     }
 
     public static String getProperty(String key) {
-        final String propertyValue = PROPS.getProperty(key);
+        final String propertyValue = PROPERTIES.getProperty(key);
         if (propertyValue.isEmpty()) {
             throw new RuntimeException(String.format("{%s} property is empty", key));
         }
