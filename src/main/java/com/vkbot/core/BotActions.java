@@ -37,7 +37,7 @@ public class BotActions {
         performRequest(
                 vk.messages().send(group)
                         .peerId(peerId)
-                        .message("")
+                        .message("this is required shit")
                         .keyboard(keyboard)
                         .randomId(new Random().nextInt())
         );

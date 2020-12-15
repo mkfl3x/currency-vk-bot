@@ -1,15 +1,16 @@
 package com.vkbot.utils;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ResourcesLoader {
-
-    private ResourcesLoader() {
-    }
 
     public static String getResource(String resourceName) {
         try {

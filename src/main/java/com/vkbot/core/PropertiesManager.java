@@ -1,9 +1,13 @@
 package com.vkbot.core;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PropertiesManager {
 
     private static final Properties PROPS;
@@ -15,9 +19,6 @@ public class PropertiesManager {
         } catch (IOException e) {
             throw new RuntimeException("Reading properties was failed", e);
         }
-    }
-
-    private PropertiesManager() {
     }
 
     public static String getProperty(String key) {

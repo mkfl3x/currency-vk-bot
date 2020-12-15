@@ -1,6 +1,5 @@
 package com.vkbot.callback;
 
-import com.vk.api.sdk.callback.CallbackApi;
 import com.vk.api.sdk.objects.messages.Message;
 import com.vk.api.sdk.objects.messages.MessageAttachment;
 import com.vkbot.callback.models.Payload;
@@ -10,7 +9,7 @@ import com.vkbot.utils.GsonMapper;
 
 import java.util.List;
 
-public class CallbackHandler extends CallbackApi {
+public class CallbackHandler {
 
     private final BotActions actions = new BotActions();
 
@@ -32,11 +31,10 @@ public class CallbackHandler extends CallbackApi {
         }
     }
 
-    @Override
-    public void messageNew(Integer groupId, Message message) {
+    public void newMessage(Message message) {
         if (message.getPayload() != null)
             payloadHandling(message.getPeerId(), message.getPayload());
-        if (message.getAttachments() != null) {
+        if (!message.getAttachments().isEmpty()) {
             attachmentsHandling(message.getPeerId(), message.getAttachments());
         }
         actions.sendKeyboard(message.getPeerId());

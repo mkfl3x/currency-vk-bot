@@ -43,10 +43,7 @@ public class Rates {
     }
 
     private static RatesResponse getRates() {
-        if (needUpdate)
-            return uploadRates();
-        else
-            return CACHED_RATES;
+        return needUpdate ? uploadRates() : CACHED_RATES;
     }
 
     public static String getRateInfo(String currencyName) {
