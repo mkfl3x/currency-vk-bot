@@ -1,5 +1,4 @@
 {
-  "one_time": true,
   "buttons": [
     [
       {
@@ -26,8 +25,7 @@
           "payload": "{\"button_id\": 3}",
           "label": "Go to this project GitHub",
           "link": "https://github.com/mkfl3x/vk-bot"
-        },
-        "color": "primary"
+        }
       }
     ]
   ]
