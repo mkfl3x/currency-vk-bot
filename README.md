@@ -2,10 +2,6 @@
 This is a simple VK bot for getting currency rates (USD, EUR) for RUB.<br>
 It was created only for fun and play a bit with VK Java SDK and VK Callback.
 
-How to work with it (**it might be turned off**):
-* Go to [VK community](https://vk.com/club197615901) of this bot
-* Open full chat with community (where you'll see keyboard)
-
 ## How to run it for your own community
 1. At first you need to register community and set callback server. [Here](https://vk.com/dev/callback_api) you can read how.<br>
 You should use following address: **https://[your_server]/callback**<br>
