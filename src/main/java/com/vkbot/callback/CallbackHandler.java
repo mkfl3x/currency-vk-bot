@@ -1,5 +1,6 @@
 package com.vkbot.callback;
 
+import com.vk.api.sdk.events.callback.CallbackApi;
 import com.vk.api.sdk.objects.messages.Message;
 import com.vk.api.sdk.objects.messages.MessageAttachment;
 import com.vkbot.callback.models.Payload;
@@ -9,9 +10,13 @@ import com.vkbot.utils.GsonMapper;
 
 import java.util.List;
 
-public class CallbackHandler {
+public class CallbackHandler extends CallbackApi {
 
     private final BotActions actions = new BotActions();
+
+    protected CallbackHandler(String confirmationCode) {
+        super(confirmationCode);
+    }
 
     private void attachmentsHandling(int peerId, List<MessageAttachment> attachments) {
         actions.sendMessage(peerId, "Attachments handling is not supported");
@@ -20,18 +25,14 @@ public class CallbackHandler {
     private void payloadHandling(int peerId, String payload) {
         Payload buttonCase = GsonMapper.deserialize(payload, Payload.class);
         switch (buttonCase.getButtonId()) {
-            case 1:
-                actions.sendMessage(peerId, Rates.getRateInfo("USD"));
-                break;
-            case 2:
-                actions.sendMessage(peerId, Rates.getRateInfo("EUR"));
-                break;
-            default:
-                throw new RuntimeException("Unrecognized button_id was tried to use");
+            case 1 -> actions.sendMessage(peerId, Rates.getRateInfo("USD"));
+            case 2 -> actions.sendMessage(peerId, Rates.getRateInfo("EUR"));
+            default -> throw new RuntimeException("Unrecognized button_id was tried to use");
         }
     }
 
-    public void newMessage(Message message) {
+    @Override
+    protected void messageNew(Integer groupId, Message message) {
         if (message.getPayload() != null)
             payloadHandling(message.getPeerId(), message.getPayload());
         if (!message.getAttachments().isEmpty()) {
