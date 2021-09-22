@@ -25,9 +25,14 @@ public class CallbackHandler extends CallbackApi {
     private void payloadHandling(int peerId, String payload) {
         Payload buttonCase = GsonMapper.deserialize(payload, Payload.class);
         switch (buttonCase.getButtonId()) {
-            case 1 -> actions.sendMessage(peerId, Rates.getRateInfo("USD"));
-            case 2 -> actions.sendMessage(peerId, Rates.getRateInfo("EUR"));
-            default -> throw new RuntimeException("Unrecognized button_id was tried to use");
+            case 1:
+                actions.sendMessage(peerId, Rates.getRateInfo("USD"));
+                break;
+            case 2:
+                actions.sendMessage(peerId, Rates.getRateInfo("EUR"));
+                break;
+            default:
+                throw new RuntimeException("Unrecognized button_id was tried to use");
         }
     }
 
